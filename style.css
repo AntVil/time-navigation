@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #333;
+    color: #eee;
+    color-scheme: dark;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    padding: 5px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    grid-column: 1 / span 2;
+}
+
+.navigation-container {
+    --navigation-height: 30px;
+
+    position: relative;
+    background-color: #ddd;
+}
+
+.floating-navigation {
+    position: absolute;
+    inset: auto 10px 10px 10px;
+    height: var(--navigation-height);
+    display: flex;
+    gap: 5px;
+    background-color: #fff6;
+}
+
+.static-navigation {
+    height: var(--navigation-height);
+    display: flex;
+    gap: 5px;
+    background-color: #fff6;
+}
+
+.navigation-controls {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: var(--navigation-height);
+    gap: 5px;
+}
+
+.navigation-play,
+.navigation-step-backward,
+.navigation-step-forward {
+    appearance: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.navigation-play::after,
+.navigation-step-backward::after,
+.navigation-step-forward::after {
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-play::after {
+    clip-path: polygon(10% 10%, 90% 50%, 10% 90%);
+}
+
+.navigation-play:checked:after {
+    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 70% 90%, 70% 10%, 30% 10%, 30% 90%, 10% 90%);
+}
+
+.navigation-step-backward::after {
+    clip-path: polygon(90% 10%, 10% 50%, 90% 90%, 40% 50%);
+}
+
+.navigation-step-forward::after {
+    clip-path: polygon(10% 10%, 90% 50%, 10% 90%, 60% 50%);
+}
+
+.navigation-panel {
+    flex: 1;
+    position: relative;
+    background-color: #0003;
+}
+
+.navigation-legend {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #000 0%, #FFF 100%);
+    background-size: 30px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.navigation-input-slider {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.navigation-input-slider::-webkit-slider-runnable-track {
+    background-color: #0000;
+}
+
+.navigation-input-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 0px;
+    box-shadow: -100vw 0 0 100vw #bca45d;
+}
+
+.navigation-input-slider::-moz-range-thumb{
+    width: 0;
+    border: none;
+}
+
+.navigation-input-slider::-moz-range-progress{
+    height: 100%;
+    background-color: #bca45d;
+}
+
+.navigation-scroll-slider-container {
+    height: 100%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+
+.navigation-scroll-slider-container::after {
+    content: "";
+    position: absolute;
+    inset: 0 50% 0 0;
+    background-color: #bca45d;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.navigation-scroll-slider {
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    padding: 0 50%;
+}
+
+.navigation-scroll-slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.navigation-scroll-slider>.navigation-legend {
+    position: initial;
+}

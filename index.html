@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>time-navigation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Native Range Slider</h1>
+
+        <section>
+            <h3>Controls Left</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="floating-navigation">
+                    <div class="navigation-controls">
+                        <input class="navigation-play" type="checkbox" name="play" title="play">
+                        <button class="navigation-step-backward" title="step backward"></button>
+                        <button class="navigation-step-forward" title="step forward"></button>
+                    </div>
+                    <div class="navigation-panel">
+                        <div class="navigation-legend"></div>
+                        <input class="navigation-input-slider" type="range" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Reduced Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="floating-navigation">
+                    <div class="navigation-panel">
+                        <div class="navigation-legend"></div>
+                        <input class="navigation-input-slider" type="range" />
+                    </div>
+                    <div class="navigation-controls">
+                        <button class="navigation-step-backward" title="step backward"></button>
+                        <button class="navigation-step-forward" title="step forward"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>No Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="floating-navigation">
+                    <div class="navigation-panel">
+                        <div class="navigation-legend"></div>
+                        <input class="navigation-input-slider" type="range" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Static Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="static-navigation">
+                    <div class="navigation-panel">
+                        <div class="navigation-legend"></div>
+                        <input class="navigation-input-slider" type="range" />
+                    </div>
+                    <div class="navigation-controls">
+                        <input class="navigation-play" type="checkbox" name="play" title="play">
+                        <button class="navigation-step-backward" title="step backward"></button>
+                        <button class="navigation-step-forward" title="step forward"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1>Scrolling Container</h1>
+
+        <section>
+            <h3>Static Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="static-navigation">
+                    <div class="navigation-controls">
+                        <input class="navigation-play" type="checkbox" name="play" title="play">
+                    </div>
+                    <div class="navigation-panel">
+                        <div class="navigation-scroll-slider-container">
+                            <div class="navigation-scroll-slider" tabindex="0">
+                                <div class="navigation-legend"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1>Track Slider</h1>
+
+        <section>
+            <h3>Static Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="static-navigation">
+                    <div class="navigation-controls">
+                        <input class="navigation-play" type="checkbox" name="play" title="play">
+                    </div>
+                    <div class="navigation-panel">
+                        under construction
+                        <!--
+                            - use `setPointerCapture` https://developer.mozilla.org/en-US/docs/Web/API/Element/setPointerCapture
+                            - save state in `data-attr`
+                            - sync state
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

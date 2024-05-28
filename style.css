@@ -2,12 +2,13 @@
     box-sizing: border-box;
     margin: 0;
     font-family: Helvetica, Arial, sans-serif;
+    color-scheme: dark;
+    color: #eee;
 }
 
 body {
+    min-height: 100svh;
     background-color: #333;
-    color: #eee;
-    color-scheme: dark;
 }
 
 main {
@@ -19,7 +20,7 @@ main {
     margin: auto;
 }
 
-h1 {
+h2 {
     grid-column: 1 / span 2;
 }
 
@@ -163,4 +164,18 @@ h1 {
 
 .navigation-scroll-slider>.navigation-legend {
     position: initial;
+}
+
+.navigation-drag-slider {
+    --percentage: 0.5;
+    height: 100%;
+    background: linear-gradient(90deg, #bca45d calc(var(--percentage) * 100%), #0000 0);
+    cursor: w-resize;
+}
+
+.navigation-custom-slider {
+    --percentage: 0.5;
+    height: 100%;
+    background: linear-gradient(90deg, #bca45d calc(var(--percentage) * 100%), #0000 0);
+    cursor: pointer;
 }

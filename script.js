@@ -1,6 +1,6 @@
 const CLICK_MOVEMENT_THRESHOLD = 5;
 
-function navigationDragSlideStart(e) {
+function navigationDragSlidePointerStart(e) {
     const element = e.target;
     e.preventDefault();
     element.setPointerCapture(e.pointerId);
@@ -20,6 +20,7 @@ function navigationDragSlideStart(e) {
         }
         let percentage = Math.min(Math.max(movement / width + startValue, 0), 100);
         element.style.setProperty("--percentage", percentage);
+        element.setAttribute("aria-valuenow", percentage);
     };
 
     const pointerup = e => {
@@ -27,6 +28,7 @@ function navigationDragSlideStart(e) {
         if(isClick) {
             let percentage = Math.min(Math.max(e.offsetX / width, 0), 100);
             element.style.setProperty("--percentage", percentage);
+            element.setAttribute("aria-valuenow", percentage);
         }
 
         element.removeEventListener("pointermove", pointermove);
@@ -38,7 +40,23 @@ function navigationDragSlideStart(e) {
     element.addEventListener("pointerup", pointerup);
 }
 
-function navigationCustomSliderStart(e) {
+function navigationDragSliderKeyboard(e) {
+    if(e.key === "ArrowLeft") {
+        const element = e.target;
+        const currentValue = parseFloat(element.style.getPropertyValue("--percentage")) || 0.5;
+        const nextValue = Math.max(currentValue - 0.1, 0);
+        element.style.setProperty("--percentage", nextValue);
+        element.setAttribute("aria-valuenow", nextValue);
+    } else if(e.key === "ArrowRight") {
+        const element = e.target;
+        const currentValue = parseFloat(element.style.getPropertyValue("--percentage")) || 0.5;
+        const nextValue = Math.min(currentValue + 0.1, 1);
+        element.style.setProperty("--percentage", nextValue);
+        element.setAttribute("aria-valuenow", nextValue);
+    }
+}
+
+function navigationCustomSliderPointerStart(e) {
     const element = e.target;
     element.setPointerCapture(e.pointerId);
 
@@ -48,6 +66,7 @@ function navigationCustomSliderStart(e) {
         e.preventDefault();
         let percentage = Math.min(Math.max(e.offsetX / width, 0), 100);
         element.style.setProperty("--percentage", percentage);
+        element.setAttribute("aria-valuenow", percentage);
     };
     pointermove(e);
 
@@ -60,4 +79,20 @@ function navigationCustomSliderStart(e) {
 
     element.addEventListener("pointermove", pointermove);
     element.addEventListener("pointerup", pointerup);
+}
+
+function navigationCustomSliderKeyboard(e) {
+    if(e.key === "ArrowLeft") {
+        const element = e.target;
+        const currentValue = parseFloat(element.style.getPropertyValue("--percentage")) || 0.5;
+        const nextValue = Math.max(currentValue - 0.1, 0);
+        element.style.setProperty("--percentage", nextValue);
+        element.setAttribute("aria-valuenow", nextValue);
+    } else if(e.key === "ArrowRight") {
+        const element = e.target;
+        const currentValue = parseFloat(element.style.getPropertyValue("--percentage")) || 0.5;
+        const nextValue = Math.min(currentValue + 0.1, 1);
+        element.style.setProperty("--percentage", nextValue);
+        element.setAttribute("aria-valuenow", nextValue);
+    }
 }

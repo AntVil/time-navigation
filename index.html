@@ -111,7 +111,7 @@
                     </div>
                     <div class="navigation-panel">
                         <div class="navigation-legend"></div>
-                        <div class="navigation-drag-slider" onpointerdown="navigationDragSlideStart(event)" role="slider" aria-label="time navigation slider" aria-valuenow="50"></div>
+                        <div class="navigation-drag-slider" onpointerdown="navigationDragSlidePointerStart(event)" onkeydown="navigationDragSliderKeyboard(event)" role="slider" aria-label="time navigation slider" aria-valuenow="50" tabindex="0"></div>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     </div>
                     <div class="navigation-panel">
                         <div class="navigation-legend"></div>
-                        <div class="navigation-custom-slider" onpointerdown="navigationCustomSliderStart(event)" role="slider" aria-label="time navigation slider" aria-valuenow="50"></div>
+                        <div class="navigation-custom-slider" onpointerdown="navigationCustomSliderPointerStart(event)" onkeydown="navigationCustomSliderKeyboard(event)" role="slider" aria-label="time navigation slider" aria-valuenow="50" tabindex="0"></div>
                     </div>
                 </div>
             </div>

@@ -99,6 +99,7 @@ h2 {
     flex: 1;
     position: relative;
     background-color: #0003;
+    container: slider / inline-size;
 }
 
 .navigation-legend {
@@ -184,4 +185,25 @@ h2 {
     background: linear-gradient(90deg, #bca45d calc(var(--percentage) * 100%), #0000 0);
     cursor: pointer;
     touch-action: none;
+}
+
+.navigation-custom-dynamic-slider {
+    --percentage: 0.5;
+    position: relative;
+    height: 100%;
+    background: linear-gradient(90deg, #bca45d calc(var(--percentage) * 100%), #0000 0);
+    cursor: pointer;
+    touch-action: none;
+}
+
+@container (inline-size < 250px) {
+    .navigation-custom-dynamic-slider {
+        background: linear-gradient(90deg, #bca45d 50%, #0000 0);
+        overflow: hidden;
+    }
+
+    .navigation-custom-dynamic-slider>.navigation-legend {
+        position: absolute;
+        left: calc(50% - var(--percentage) * 100%);
+    }
 }

@@ -134,6 +134,24 @@
                 </div>
             </div>
         </section>
+
+        <h2>Custom Dynamic Range Slider</h2>
+        <section>
+            <h3>Static Controls</h3>
+            <div class="navigation-container">
+                <img src="./images/map.svg" alt="map" />
+                <div class="static-navigation">
+                    <div class="navigation-controls">
+                        <input class="navigation-play" type="checkbox" name="play" title="play">
+                    </div>
+                    <div class="navigation-panel">
+                        <div class="navigation-custom-dynamic-slider" onpointerdown="navigationCustomDynamicSliderPointerStart(event)" onkeydown="navigationCustomSliderKeyboard(event)" role="slider" aria-label="time navigation slider" aria-valuenow="50" tabindex="0">
+                            <div class="navigation-legend"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 </html>
